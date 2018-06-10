@@ -6,10 +6,12 @@ function (filetype, path, out_dir, type, genelen)
     }
     else if (filetype == "txt") {
         raw_count = read.table(path, header = TRUE, row.names = 1)
+    }else if(filetype == "raw") {
+        raw_count = path
     }else if(filetype == "rds") {
         raw_count = readRDS(path)
     }else {
-        print("filetype can be 'csv', 'txt', or 'rds'!")
+        print("filetype can be 'raw', 'csv', 'txt', or 'rds'!")
         stop()
     }
     raw_count = as.matrix(raw_count)
