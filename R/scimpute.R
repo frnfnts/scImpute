@@ -83,6 +83,7 @@ function (count_path, infile = "csv", outfile = "csv", type = "count", out_dir, 
     count_imp = 10^count_imp - 1.01
     rownames(count_imp) = genenames
     colnames(count_imp) = cellnames
+    if (outfile == "raw") return(count_imp)
     print("writing imputed count matrix ...")
     write_count(count_imp, filetype = outfile, out_dir, type = type, genelen = genelen)
     return(outliers)
