@@ -1,5 +1,26 @@
 scImpute: accurate and robust imputation of scRNA-seq data
 ================
+Difference from Original
+-----------
+Able to input/output raw matrix data.
+
+```r
+# if outfile=raw, returns an imputed matrix instead of outlier
+imputed.exp <- scimpute(# full path to raw count matrix
+         count_path = count.mat,   # raw count matrix data
+         infile = "raw",           # format of input file (genes * cells with header and row.name)
+         outfile = "raw",          # format of output file
+         out_dir = output.dir,           # full path to output directory
+         labeled = FALSE,          # cell type labels not available
+         drop_thre = 0.5,          # threshold set on dropout probability
+         Kcluster = 2,             # 2 cell subpopulations
+         ncores = 10)              # number of cores used in parallel computation
+ ```
+
+
+Original Readme Below
+-----------
+
 Wei Vivian Li, Jingyi Jessica Li
 2018-06-08
 
